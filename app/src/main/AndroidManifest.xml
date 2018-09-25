@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tomato.skymusic">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <application
+        android:name=".utils.DataCenter"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+       
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.PlayMusicActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name=".services.MusicService" />
+
+        <receiver android:name=".receivers.NextMusicReceiver">
+            <intent-filter>
+                <action android:name="ACTION_NEXT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.PlayPauseMusicReceiver">
+            <intent-filter>
+                <action android:name="ACTION_PLAY_PAUSE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.HeadSetReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.PrevMusicReceiver">
+            <intent-filter>
+                <action android:name="ACTION_PREV" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.RemoteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
