@@ -1,4 +1,4 @@
-package com.example.tomato.skymusic.adapter;
+package com.example.tomato.skymusic.Adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

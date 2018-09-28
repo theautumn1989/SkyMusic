@@ -1,14 +1,12 @@
 package com.example.tomato.skymusic.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,11 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.example.tomato.skymusic.Adapter.SongListAdapter;
 import com.example.tomato.skymusic.R;
-import com.example.tomato.skymusic.activities.PlayMusicActivity;
-import com.example.tomato.skymusic.adapter.SongListAdapter;
+import com.example.tomato.skymusic.activities.MainActivity;
 import com.example.tomato.skymusic.interfaces.SongOnCallBack;
 import com.example.tomato.skymusic.models.Song;
+import com.example.tomato.skymusic.services.MusicService;
 import com.example.tomato.skymusic.utils.DataCenter;
 
 import java.util.ArrayList;
@@ -37,6 +36,7 @@ public class FragmentSongList extends Fragment implements SongOnCallBack {
     RecyclerView rvListSong;
     ArrayList<Song> listSong;
     SongListAdapter songAdapter;
+    MusicService musicService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class FragmentSongList extends Fragment implements SongOnCallBack {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvListSong.setLayoutManager(layoutManager);
         rvListSong.setHasFixedSize(true);
+        musicService = new MusicService();
     }
 
     private void showListSong() {
@@ -93,12 +94,12 @@ public class FragmentSongList extends Fragment implements SongOnCallBack {
     @Override
     public void onItemClicked(int position, boolean isLongClick) {
 
-        Intent intent = new Intent(getActivity(), PlayMusicActivity.class);
-        intent.putExtra(SONG_PATH, listSong.get(position).getPath());
-        intent.putExtra(SONG_POS, position);
-        intent.putExtra(LIST_SONG, listSong);
-        intent.putExtra(PlayMusicActivity.IS_PlAYING, false);
-        getActivity().startActivity(intent);
+
+        MainActivity main = (MainActivity) getActivity();
+        main.updatePlayingBar(position);
+        main.playMusic(position);
+        main.setmPosition(position);
+
     }
 
 }

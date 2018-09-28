@@ -18,11 +18,9 @@ public class PlayPauseMusicReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         PlayMusicActivity musicActivity = (PlayMusicActivity) DataCenter.instance.playActivity;
         MusicService musicService = (MusicService) DataCenter.instance.musicService;
-        if (musicActivity != null) {
-            musicActivity.playPauseMusic();
-        } else {
-            musicService.playPauseMusic();
-        }
+
+        musicService.playPauseMusic();
+
         musicService.showNotification(true);
     }
 }

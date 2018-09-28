@@ -1,4 +1,4 @@
-package com.example.tomato.skymusic.adapter;
+package com.example.tomato.skymusic.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +13,8 @@ import com.example.tomato.skymusic.R;
 import com.example.tomato.skymusic.interfaces.SongPlayingOnCallBack;
 import com.example.tomato.skymusic.models.Song;
 
-
 import java.util.ArrayList;
+
 
 /**
  * Created by IceMan on 11/20/2016.

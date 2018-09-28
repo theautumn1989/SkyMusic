@@ -1,11 +1,5 @@
 package com.example.tomato.skymusic.utils;
 
-import android.app.Activity;
-import android.view.WindowManager;
-
-import com.example.tomato.skymusic.activities.MainActivity;
-
-
 /**
  * Created by IceMan on 12/10/2016.
  */
