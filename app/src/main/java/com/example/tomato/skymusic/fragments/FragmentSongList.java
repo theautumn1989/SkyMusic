@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.tomato.skymusic.Adapter.SongListAdapter;
+import com.example.tomato.skymusic.adapter.SongListAdapter;
 import com.example.tomato.skymusic.R;
 import com.example.tomato.skymusic.activities.MainActivity;
 import com.example.tomato.skymusic.interfaces.SongOnCallBack;
@@ -59,7 +59,7 @@ public class FragmentSongList extends Fragment implements SongOnCallBack {
     }
 
     private void initViews() {
-        rvListSong = (RecyclerView) view.findViewById(R.id.rv_song_list);
+        rvListSong =  view.findViewById(R.id.rv_song_list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvListSong.setLayoutManager(layoutManager);
         rvListSong.setHasFixedSize(true);
@@ -94,12 +94,12 @@ public class FragmentSongList extends Fragment implements SongOnCallBack {
     @Override
     public void onItemClicked(int position, boolean isLongClick) {
 
-
+        MusicService mService = (MusicService) DataCenter.instance.musicService;
         MainActivity main = (MainActivity) getActivity();
-        main.updatePlayingBar(position);
+        mService.setStatusRepeat(false);        // khi nhấn vào nút repeat thì sẽ có 2 trường hợp next hoặc chọn trong dnah sách
         main.playMusic(position);
         main.setmPosition(position);
-
+        main.updatePlayingBar(position);
     }
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_activity_play_music"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,44 +55,39 @@
             android:layout_weight="1"
             >
             <ImageView
+                android:layout_alignParentBottom="true"
                 android:layout_above="@id/ll_seek_bar"
                 android:layout_alignParentRight="true"
                 android:id="@+id/iv_play_pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/pb_pause" />
+                android:src="@drawable/pb_play" />
 
-            <LinearLayout
-                android:id="@+id/ll_seek_bar"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignParentBottom="true"
-                android:orientation="horizontal">
+            <FrameLayout
+                android:layout_marginTop="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_time_played"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="00:00"
-                    android:textColor="@color/white" />
+                <com.example.tomato.skymusic.utils.CircularSeekBar
+                    android:id="@+id/circularSb"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:padding="0dp"
+                    app:start_angle="270"
+                    app:end_angle="270"
+                    app:circle_x_radius="100dp"
+                    app:circle_y_radius="100dp"
+                    app:use_custom_radii="true"
+                    app:progress="10"
+                    app:max="100"
+                    app:pointer_alpha_ontouch="100"
+                    app:pointer_color="#0174DF"
+                    app:pointer_halo_color="#880174DF"
+                    />
+            </FrameLayout>
 
-                <SeekBar
-                    android:id="@+id/seek_bar_play"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7" />
 
-                <TextView
-                    android:id="@+id/tv_time_left"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="00:00"
-                    android:textColor="@color/white" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_time_center"

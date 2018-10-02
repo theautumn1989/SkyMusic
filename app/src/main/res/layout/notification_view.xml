@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_play_pause_noti"
             android:background="@null"
-            android:src="@drawable/pb_play"
+            android:src="@drawable/pb_pause"
             android:padding="5dp"/>
 
         <ImageButton

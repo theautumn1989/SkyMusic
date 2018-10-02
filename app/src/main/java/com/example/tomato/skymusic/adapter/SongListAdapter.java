@@ -1,4 +1,4 @@
-package com.example.tomato.skymusic.Adapter;
+package com.example.tomato.skymusic.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -76,8 +76,8 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
 
         public ViewHolderSong(View itemView) {
             super(itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tv_song_title_item);
-            tvArtist = (TextView) itemView.findViewById(R.id.artist_name_song_item);
+            tvTitle =  itemView.findViewById(R.id.tv_song_title_item);
+            tvArtist =  itemView.findViewById(R.id.artist_name_song_item);
             itemView.setOnClickListener(this);
         }
 

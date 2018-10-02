@@ -1,4 +1,4 @@
-package com.example.tomato.skymusic.Adapter;
+package com.example.tomato.skymusic.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -70,9 +70,9 @@ public class SongListPlayingAdapter extends RecyclerView.Adapter<SongListPlaying
 
         public ViewHolderSongPlaying(View itemView) {
             super(itemView);
-            imgAlbum = (ImageView) itemView.findViewById(R.id.img_album_song_play);
-            tvTitle = (TextView) itemView.findViewById(R.id.tv_song_name_play);
-            tvArtist = (TextView) itemView.findViewById(R.id.tv_artist_song_play);
+            imgAlbum =  itemView.findViewById(R.id.img_album_song_play);
+            tvTitle =  itemView.findViewById(R.id.tv_song_name_play);
+            tvArtist =  itemView.findViewById(R.id.tv_artist_song_play);
             itemView.setOnClickListener(this);
         }
 

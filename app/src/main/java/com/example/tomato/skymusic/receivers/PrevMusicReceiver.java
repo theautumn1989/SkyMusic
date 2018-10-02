@@ -15,7 +15,6 @@ import com.example.tomato.skymusic.utils.DataCenter;
 public class PrevMusicReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-     //   PlayMusicActivity musicActivity = (PlayMusicActivity) DataCenter.instance.playActivity;
         MusicService musicService = (MusicService) DataCenter.instance.musicService;
 
         musicService.backMusic();
